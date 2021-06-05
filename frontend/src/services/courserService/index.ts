@@ -1,9 +1,9 @@
 import { api } from "../api";
 
-export const CourserService = {
+export const CourseService = {
   async findAll() {
-    const coursers = await api.get("/coursers");
+    const courses = await api.get("/coursers");
 
-    return coursers.data;
+    return courses.data;
   },
 };
