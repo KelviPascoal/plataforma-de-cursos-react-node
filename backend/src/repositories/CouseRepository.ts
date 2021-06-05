@@ -1,4 +1,4 @@
-import { CouserModel } from "../models/CouserModel"
+import { CouserModel } from "../models/CouseModel"
 
 export const CouserRepository = {
     async findAll() {

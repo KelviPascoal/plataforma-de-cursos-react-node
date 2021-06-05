@@ -6,6 +6,11 @@ export const LessonService = {
     return lessons;
   },
 
+  async findByCourse(courseid: string) {
+    const lessons = await LessonRepository.findByCourse(courseid);
+    return lessons;
+  },
+
   async findById(id: string) {
     const lesson = await LessonRepository.findById(id);
     return lesson;

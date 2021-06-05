@@ -2,9 +2,9 @@ import mongoose from 'mongoose';
 
 const LessonSchema = new mongoose.Schema({
     name: String,
-    urlVideo: String,
+    urlvideo: String,
     description: String,
-    courserId: String,
+    courseid: String,
 });
 
 export const LessonModel = mongoose.model('lesson', LessonSchema, 'lesson');

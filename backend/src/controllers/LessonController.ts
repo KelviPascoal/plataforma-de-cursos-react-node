@@ -1,8 +1,17 @@
 import { Request, Response } from "express";
 import { LessonService } from "../services/LessonService";
 
+interface QueryParamsProps {
+  courseid: string;
+}
+
 export const LessonController = {
   async findAll(request: Request, response: Response) {
+    const {courseid} = request.query;
+    if(courseid) {
+      const lessons = await LessonService.findByCourse(String(courseid));
+      response.status(200).json(lessons);
+    }
     const lessons = await LessonService.findAll();
     response.status(200).json(lessons);
   },
@@ -14,27 +23,27 @@ export const LessonController = {
   },
 
   async create(request: Request, response: Response) {
-    const { urlVideo, name, description, courserId } = request.body;
+    const { urlvideo, name, description, courseid } = request.body;
 
     const lessonCreated = await LessonService.create({
-      urlVideo,
+      urlvideo,
       name,
       description,
-      courserId,
+      courseid,
     });
     response.status(201).json(lessonCreated);
   },
 
   async update(request: Request, response: Response) {
     const { id } = request.params;
-    const { urlVideo, name, description, courserId } = request.body;
+    const { urlvideo, name, description, courseid } = request.body;
 
     const lessonUpdated = await LessonService.update(
       {
-        urlVideo,
+        urlvideo,
         name,
         description,
-        courserId,
+        courseid,
       },
       id
     );

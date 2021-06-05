@@ -5,6 +5,10 @@ export const LessonRepository = {
         const lessons = await LessonModel.find().sort('name');
         return lessons;
     },
+    async findByCourse(courseid: string) {
+        const lessons = await LessonModel.find({courseid :courseid}).sort('name');
+        return lessons;
+        },
 
     async findById(id: string) {
         const lesson = await LessonModel.findOne({_id: id});

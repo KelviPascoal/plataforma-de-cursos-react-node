@@ -1,5 +1,5 @@
 import {Router} from 'express';
-import { CouserRoute } from './CouserRoute';
+import { CouserRoute } from './CouseRoute';
 import { LessonRoute } from './LessonRoute';
 import { StudentRoute } from './StudentRoute';
 

@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { CourserController } from "../controllers/CouserController";
+import { CourserController } from "../controllers/CouseController";
 
 export const CouserRoute = Router();
 

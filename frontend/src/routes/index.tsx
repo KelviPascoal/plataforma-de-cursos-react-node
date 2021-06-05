@@ -9,9 +9,8 @@ function Routes() {
         <BrowserRouter>
         <Header/>
             <Switch>
-                <Route path="/aula" exact component={LessonList}/>
+                <Route path="/aulas/:id" exact component={LessonList}/>
                 <Route path="/cursos" component={Courserlist}/>
-                <Route path="/:courserId/aulas" component={LessonList}/>
             </Switch>
         </BrowserRouter>
         

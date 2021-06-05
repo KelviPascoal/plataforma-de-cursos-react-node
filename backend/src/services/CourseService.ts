@@ -1,6 +1,6 @@
-import { CouserRepository } from "../repositories/CouserRepository";
+import { CouserRepository } from "../repositories/CouseRepository";
 
-export const CouserService = {
+export const CouseService = {
   async findAll() {
     const cousers = await CouserRepository.findAll();
     return cousers;
