@@ -1,13 +1,19 @@
 import { LessonModel } from "../models/LessonModel"
+import { Lessons, ParamsByFind } from '../services/types/Lessons'
 
 export const LessonRepository = {
     async findAll() {
+        const totalItems =  await LessonModel.find().count()
         const lessons = await LessonModel.find().sort('name');
-        return lessons;
+        const leesonsAndCount = {totalItems, lessons}
+        return leesonsAndCount;
     },
-    async findByCourse(courseid: string) {
-        const lessons = await LessonModel.find({courseid :courseid}).sort('name');
-        return lessons;
+    async findByCourse(paramsByFind: ParamsByFind) {
+        const {id, limit, skip} = paramsByFind;
+        const totalItems =  await LessonModel.find({courseid :id}).count()
+        const lessons = await LessonModel.find({courseid :id}).sort('name').limit(limit).skip(skip);
+        const leesonsAndCount = {totalItems, lessons}
+        return leesonsAndCount;
         },
 
     async findById(id: string) {

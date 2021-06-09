@@ -1,23 +1,31 @@
 import { Request, Response } from "express";
 import { LessonService } from "../services/LessonService";
 
-interface QueryParamsProps {
-  courseid: string;
-}
-
 export const LessonController = {
   async findAll(request: Request, response: Response) {
-    const {courseid} = request.query;
-    if(courseid) {
-      const lessons = await LessonService.findByCourse(String(courseid));
+    const { courseid } = request.query;
+    console.log(courseid);
+    
+    if (courseid) {
+      const { limit, skip } = request.query;
+      const paramsByFind = {
+        id: String(courseid),
+        limit: Number(limit),
+        skip: Number(skip)
+    }
+      const lessons = await LessonService.findByCourse(paramsByFind);
       response.status(200).json(lessons);
     }
-    const lessons = await LessonService.findAll();
-    response.status(200).json(lessons);
+
+      const lessons = await LessonService.findAll();
+      response.status(200).json(lessons);
   },
+
+
 
   async findOneLesson(request: Request, response: Response) {
     const { id } = request.params;
+
     const lesson = await LessonService.findById(id);
     response.status(200).json(lesson);
   },

@@ -37,9 +37,14 @@ export const MenuPagesButtons = styled.div`
   width: 400px;
 
   display: flex;
+  align-items: center;
   justify-content: space-between;
 
+  a {
+
   button {
+    height: 50px;
+
     border: 0;
     background-color: transparent;
     color:  #898989;
@@ -49,7 +54,12 @@ export const MenuPagesButtons = styled.div`
         border-bottom: 2px solid #009ac3;
         color: #fff;
     }
+    
+
   }
+  }
+ 
+
 `;
 
 export const AuthButtons = styled.div`
@@ -72,6 +82,7 @@ button {
 @media (max-width: 879px) {
     position: absolute;
     margin-left: 60%;
+
 }
 `;
 

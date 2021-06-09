@@ -27,7 +27,7 @@ export function Courselist() {
         <Section>
             {courses && courses.map(course =>
                 <Container key={course._id}>
-                    <Link to={`/aulas/${course._id}`}>
+                    <Link to={`/aulas/lista/${course._id}`}>
                         <img src={course.urlImg} alt="course-img" />
                         <strong>{course.name}</strong>
                         <span>asdasdasd asdas dsad adasdasdaa dsda sdsad sadsa dsadasd sadsddsa dsadsads adsa</span>

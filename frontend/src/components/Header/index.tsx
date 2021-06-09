@@ -1,18 +1,28 @@
+import { Link } from "react-router-dom";
 import { Container, MenuPagesButtons, AuthButtons } from "./styles";
 
-export function Header () {
+export function Header() {
 
-    return(
+    return (
         <Container>
             <div className="logo">
                 <h1>Sankatsu</h1>
                 <img src="https://muniztrader.com/wp-content/uploads/2018/02/Logo-Lobo.png" alt="logo" width="40px" height="40px" />
             </div>
             <MenuPagesButtons>
-                <button>Home</button>
-                <button>Cursos</button>
-                <button>Conteudo</button>
-                <button>A Sankatsu</button>
+                <Link to="/">
+                    <button>Home</button>
+                </Link>
+                <Link to="/cursos">
+                    <button>Cursos</button>
+                </Link>
+                <Link to="/">
+                    <button>Conteudo</button>
+                </Link>
+                <Link to="/">
+                    <button>A Sankatsu</button>
+                </Link>
+
             </MenuPagesButtons>
 
             <AuthButtons>

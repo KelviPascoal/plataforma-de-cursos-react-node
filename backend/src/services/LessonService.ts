@@ -1,13 +1,15 @@
 import { LessonRepository } from "../repositories/LessonRepository";
+import {LessonsResponse, ParamsByFind} from './types/Lessons'
+
 
 export const LessonService = {
-  async findAll() {
+  async findAll(): Promise<LessonsResponse> {
     const lessons = await LessonRepository.findAll();
     return lessons;
   },
 
-  async findByCourse(courseid: string) {
-    const lessons = await LessonRepository.findByCourse(courseid);
+  async findByCourse(paramsByFind: ParamsByFind): Promise<LessonsResponse> {
+    const lessons = await LessonRepository.findByCourse(paramsByFind);
     return lessons;
   },
 
